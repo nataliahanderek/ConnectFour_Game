@@ -9,14 +9,17 @@ class Regula4Pion(Regula):
             ilosc = 0
             aktualny = None
             for j in range(len(plansza)):
-                if self.plansza[j][i] != 0:
-                    if self.plansza[j][i] != aktualny:
+                if plansza[j][i] != 0:
+                    if plansza[j][i] != aktualny:
                         ilosc = 1
                         aktualny = plansza[j][i]
                     else:
                         ilosc += 1
                         if ilosc == 4:
                             return plansza[j][i]
+                else:
+                    ilosc = 0
+                    aktualny = 0
 
     def __str__(self):
         return "4 kolka w pionie"
@@ -36,6 +39,9 @@ class Regula4Poziom(Regula):
                         ilosc += 1
                         if ilosc == 4:
                             return plansza[j][i]
+                else:
+                    ilosc = 0
+                    aktualny = 0
 
     def __str__(self):
         return "4 kolka w poziomie"
@@ -56,6 +62,9 @@ class Regula4Skos(Regula):
                     ilosc += 1
                     if ilosc == 4:
                         return plansza[ki][kj]
+            else:
+                ilosc = 0
+                aktualny = 0
             ki += 1
             kj += 1
 
@@ -73,18 +82,22 @@ class Regula4Skos(Regula):
                     ilosc += 1
                     if ilosc == 4:
                         return plansza[ki][kj]
+            else:
+                ilosc = 0
+                aktualny = 0
+
             ki += 1
             kj -= 1
 
     def ktoWygral(self, plansza):
         for i in range(len(plansza)):
             for j in range(len(plansza[i])):
-                wynik = self.skosLewoPrawo(i, j)
+                wynik = self.skosLewoPrawo(i, j, plansza)
                 if wynik in [1, 2]:
                     return wynik
-                wynik = self.skosPrawoLewo(i, j)
+                wynik = self.skosPrawoLewo(i, j, plansza)
                 if wynik in [1, 2]:
                     return wynik
 
     def __str__(self):
-        return "4 kolka w poziomie"
+        return "4 kolka na skos"
