@@ -13,12 +13,6 @@ class Plansza:
         self.__reguly = reguly
         self.reset()
 
-    # def oznacz(self, y, x, nr_gracza):
-    #     if self.plansza[y][x] != 0:
-    #         return False
-    #     self.plansza[y][x] = nr_gracza
-    #     return True
-
     @property
     def plansza(self):
         return self.__plansza
