@@ -2,7 +2,7 @@ class Regula:
     def ktoWygral(self, plansza):
         pass
 
-
+#regula sprawdzajaca czy gracz ulozyl cztery kolka w pionie
 class Regula4Pion(Regula):
     def ktoWygral(self, plansza):
         for i in range(len(plansza[0])):
@@ -25,6 +25,7 @@ class Regula4Pion(Regula):
         return "4 kolka w pionie"
 
 
+#regula sprawdzajaca czy gracz ulozyl cztery kolka w poziomie
 class Regula4Poziom(Regula):
     def ktoWygral(self, plansza):
         for j in range(len(plansza)):
@@ -47,7 +48,9 @@ class Regula4Poziom(Regula):
         return "4 kolka w poziomie"
 
 
+#regula sprawdzajaca czy gracz ulozyl cztery kolka na skos
 class Regula4Skos(Regula):
+    #skos z lewej do prawej
     def skosLewoPrawo(self, i, j, plansza):
         ki = i
         kj = j
@@ -68,6 +71,7 @@ class Regula4Skos(Regula):
             ki += 1
             kj += 1
 
+    #skos z prawej do lewej
     def skosPrawoLewo(self, i, j, plansza):
         ki = i
         kj = j
